@@ -1,0 +1,13 @@
+nohup: ignoring input
+{   'data_filepath': '/data/madhu/amazon-reviews-2018/Automotive_5.json.gz',
+    'name': 'Automotive reviews',
+    'output_dir': '/data/madhu/amazon-reviews-2018/processed_data/automotive/'}
+{   'data_filepath': '/data/madhu/amazon-reviews-2018/Luxury_Beauty_5.json.gz',
+    'name': 'Luxury Beauty reviews',
+    'output_dir': '/data/madhu/amazon-reviews-2018/processed_data/luxury_beauty_5/'}
+{   'data_filepath': '/data/madhu/amazon-reviews-2018/Pet_Supplies_5.json.gz',
+    'name': 'Pet supplies reviews',
+    'output_dir': '/data/madhu/amazon-reviews-2018/processed_data/pet_supplies/'}
+{   'data_filepath': '/data/madhu/amazon-reviews-2018/Sports_and_Outdoors_5.json.gz',
+    'name': 'Sports and Outdoors reviews',
+    'output_dir': '/data/madhu/amazon-reviews-2018/processed_data/sports_and_outdoors/'}
