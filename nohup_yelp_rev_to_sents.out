@@ -1,0 +1,9 @@
+nohup: ignoring input
+{   'name': 'Yelp',
+    'negative': {   'data_filepath': '/data/madhu/yelp/yelp_processed_data/neg_reviews_train',
+                    'n_samples': 50000},
+    'positive': {   'data_filepath': '/data/madhu/yelp/yelp_processed_data/pos_reviews_train',
+                    'n_samples': 50000},
+    'saves_dir': 'yelp'}
+'positive'
+'negative'

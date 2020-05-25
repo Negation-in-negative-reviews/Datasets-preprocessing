@@ -1,0 +1,9 @@
+nohup: ignoring input
+{   'name': 'Luxury Beauty',
+    'negative': {   'data_filepath': '/data/madhu/amazon-reviews-2018/processed_data/luxury_beauty/neg_reviews_train',
+                    'n_samples': 50000},
+    'positive': {   'data_filepath': '/data/madhu/amazon-reviews-2018/processed_data/luxury_beauty/pos_reviews_train',
+                    'n_samples': 50000},
+    'saves_dir': 'luxury_beauty'}
+'positive'
+'negative'

@@ -1,0 +1,9 @@
+nohup: ignoring input
+{   'name': 'Cellphones',
+    'negative': {   'data_filepath': '/data/madhu/amazon-reviews-2018/processed_data/cellphones_and_accessories/neg_reviews_train',
+                    'n_samples': 50000},
+    'positive': {   'data_filepath': '/data/madhu/amazon-reviews-2018/processed_data/cellphones_and_accessories/pos_reviews_train',
+                    'n_samples': 50000},
+    'saves_dir': 'cellphones'}
+'positive'
+'negative'

@@ -1,18 +1,19 @@
 import os
 import spacy
 import numpy as np
-
-# IMDB_DATASET_PATH = "/data/madhu/imdb_dataset/aclImdb/train/"
-IMDB_DATASET_PATH = "/data/madhu/imdb_dataset/aclImdb/test/"
+import random
+IMDB_DATASET_DIR = "/data/madhu/imdb_dataset/aclImdb/"
+data_category = "train"
+# IMDB_DATASET_PATH = "/data/madhu/imdb_dataset/aclImdb/test/"
 
 def read_files(catgeory):
-    files_dir = os.path.join(IMDB_DATASET_PATH, catgeory)
+    files_dir = os.path.join(IMDB_DATASET_DIR, data_category, catgeory)
     
     onlyfiles = [f for f in os.listdir(files_dir) if os.path.isfile(os.path.join(files_dir, f))]
     out_dir = "/data/madhu/imdb_dataset/processed_data"
 
     # f_out = open(os.path.join(out_dir, catgeory+"_reviews_train"), "w")
-    f_out = open(os.path.join(out_dir, catgeory+"_reviews_test"), "w")
+    f_out = open(os.path.join(out_dir, catgeory+"_reviews_"+data_category), "w")
     # f_out = open(os.path.join(out_dir, "temp_"+catgeory), "w")
     samples = []
     for file in onlyfiles:
@@ -43,9 +44,22 @@ def write_sents(sents, out_file):
         for s in sents:
             fout.write(s.strip("\n")+"\n")
 
+# def split_data(reviews, filename_train, filename_dev):
+#     random.shuffle(reviews)
+#     train_size = int(len(reviews)*0.8)
+#     dev_size = int(len(reviews)*0.1)
+#     train_reviews = reviews[:train_size]
+#     dev_reviews = reviews[train_size:dev_size]
+#     test_reviews = reviews[dev_size:]
+
+#     write_sents(train_reviews, filename_train)
+#     write_sents(dev_reviews, filename_dev)
+#     write_sents(test_reviews, filename_test)    
+
 if __name__ == "__main__":
     seed_val = 23
     np.random.seed(seed_val)
+    random.seed(seed_val)
 
     pos_samples = read_files("pos")
     neg_samples = read_files("neg")
@@ -61,14 +75,19 @@ if __name__ == "__main__":
     pos_selected_sents = [pos_sents[idx] for idx in pos_indices]
     neg_selected_sents = [neg_sents[idx] for idx in neg_indices]
 
-    out_dir = "/data/madhu/imdb_dataset/processed_data"
+    out_dir = "/data/madhu/imdb_dataset/processed_data_new"
 
     # write_sents(pos_selected_sents, os.path.join(out_dir,"pos_reviews_"+str(n_samples)+"sents"))
     # write_sents(neg_selected_sents, os.path.join(out_dir,"neg_reviews_"+str(n_samples)+"sents"))
+    if data_category == "train":
+        write_sents(pos_selected_sents[:n_samples-5000], os.path.join(out_dir,"pos_"+data_category+"_reviews_"+str(n_samples-5000)+"sents"))
+        write_sents(neg_selected_sents[:n_samples-5000], os.path.join(out_dir,"neg_"+data_category+"_reviews_"+str(n_samples-5000)+"sents"))
 
-    write_sents(pos_selected_sents, os.path.join(out_dir,"pos_test_reviews_"+str(n_samples)+"sents"))
-    write_sents(neg_selected_sents, os.path.join(out_dir,"neg_test_reviews_"+str(n_samples)+"sents"))
-
+        write_sents(pos_selected_sents[n_samples-5000:], os.path.join(out_dir,"pos_dev_reviews_"+str(5000)+"sents"))
+        write_sents(neg_selected_sents[n_samples-5000:], os.path.join(out_dir,"neg_dev_reviews_"+str(5000)+"sents"))
+    else:
+        write_sents(pos_selected_sents, os.path.join(out_dir,"pos_"+data_category+"_reviews_"+str(n_samples)+"sents"))
+        write_sents(neg_selected_sents, os.path.join(out_dir,"neg_"+data_category+"_reviews_"+str(n_samples)+"sents"))
     n_samples = int(1e4)
 
     pos_indices = np.random.choice(np.arange(len(pos_samples)), size=n_samples)
@@ -80,5 +99,8 @@ if __name__ == "__main__":
     pos_sents_same_review = get_sents(selected_pos_samples)
     neg_sents_same_review = get_sents(selected_neg_samples)
 
-    write_sents(pos_sents_same_review, os.path.join(out_dir,"pos_test_reviews_"+str(n_samples)+"sents_same_review"))
-    write_sents(neg_sents_same_review, os.path.join(out_dir,"neg_test_reviews_"+str(n_samples)+"sents_same_review"))
+    write_sents(pos_sents_same_review, os.path.join(out_dir,"pos_"+data_category+"_reviews_"+str(n_samples)+"sents_same_review"))
+    write_sents(neg_sents_same_review, os.path.join(out_dir,"neg_"+data_category+"_reviews_"+str(n_samples)+"sents_same_review"))
+
+    print("Execution finished")
+

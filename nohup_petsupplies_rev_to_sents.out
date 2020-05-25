@@ -1,0 +1,9 @@
+nohup: ignoring input
+{   'name': 'Pet Supplies',
+    'negative': {   'data_filepath': '/data/madhu/amazon-reviews-2018/processed_data/pet_supplies/neg_reviews_train',
+                    'n_samples': 50000},
+    'positive': {   'data_filepath': '/data/madhu/amazon-reviews-2018/processed_data/pet_supplies/pos_reviews_train',
+                    'n_samples': 50000},
+    'saves_dir': 'pet_supplies'}
+'positive'
+'negative'

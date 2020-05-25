@@ -1,0 +1,9 @@
+nohup: ignoring input
+{   'name': 'Tripadvisor',
+    'negative': {   'data_filepath': '/data/madhu/tripadvisor/processed_data/neg_reviews_train',
+                    'n_samples': 50000},
+    'positive': {   'data_filepath': '/data/madhu/tripadvisor/processed_data/pos_reviews_train',
+                    'n_samples': 50000},
+    'saves_dir': 'tripadvisor'}
+'positive'
+'negative'

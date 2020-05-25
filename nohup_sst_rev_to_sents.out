@@ -1,0 +1,7 @@
+nohup: ignoring input
+{   'name': 'SST',
+    'negative': {   'data_filepath': '/data/madhu/stanford-sentiment-treebank/matched_data/neg_reviews_train'},
+    'positive': {   'data_filepath': '/data/madhu/stanford-sentiment-treebank/matched_data/pos_reviews_train'},
+    'saves_dir': 'sst'}
+'positive'
+'negative'

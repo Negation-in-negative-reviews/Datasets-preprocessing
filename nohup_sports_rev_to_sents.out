@@ -1,0 +1,9 @@
+nohup: ignoring input
+{   'name': 'Sports',
+    'negative': {   'data_filepath': '/data/madhu/amazon-reviews-2018/processed_data/sports_and_outdoors/neg_reviews_train',
+                    'n_samples': 50000},
+    'positive': {   'data_filepath': '/data/madhu/amazon-reviews-2018/processed_data/sports_and_outdoors/pos_reviews_train',
+                    'n_samples': 50000},
+    'saves_dir': 'sports_and_outdoors'}
+'positive'
+'negative'
