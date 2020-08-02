@@ -1,0 +1,2 @@
+#!/bin/sh
+nohup python code/yelp_preprocessing.py --yelp_review_filepath="/data/madhu/yelp/yelp_academic_dataset_review.json.gz" --yelp_business_filepath="/data/madhu/yelp/yelp_academic_dataset_business.json.gz" --output_dir="/data/madhu/yelp/processed_data/"

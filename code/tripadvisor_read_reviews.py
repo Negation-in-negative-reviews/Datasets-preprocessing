@@ -10,6 +10,7 @@ from os import listdir
 from os.path import isfile, join
 from amazon_read_reviews import get_clean_review
 import imdb_read_dataset
+import argparse
 
 pp = pprint.PrettyPrinter(indent=4)
 myprint = pp.pprint
@@ -63,6 +64,8 @@ def read_json_gz(args: dict()):
     return all_pos_reviews, all_neg_reviews
    
 if __name__ == "__main__":
+
+    
 
     data = [
         {
